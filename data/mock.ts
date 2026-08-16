@@ -14,3 +14,4 @@ export const initialGoals: Goal[] = [
 ];
 export const initialRewards: Reward[] = [{id:'coffee',title:'Specialty coffee',cost:150},{id:'movie',title:'Movie night',cost:250},{id:'game',title:'New game',cost:800},{id:'dinner',title:'Nice dinner',cost:1000},{id:'trip',title:'Trip fund',cost:5000}];
 export const initialFurniture: FurnitureItem[] = [{id:'plant',title:'Plant',category:'Plants',cost:120,x:78,y:58,owned:true},{id:'lamp',title:'Lamp',category:'Decor',cost:80,x:20,y:48,owned:true},{id:'chair',title:'Chair',category:'Furniture',cost:150,x:60,y:68,owned:true},{id:'sofa',title:'Sofa',category:'Furniture',cost:300,x:12,y:72,owned:false},{id:'table',title:'Table',category:'Furniture',cost:120,x:43,y:76,owned:true},{id:'books',title:'Bookshelf',category:'Furniture',cost:200,x:82,y:32,owned:true}];
+

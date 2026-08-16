@@ -1,0 +1,9 @@
+node_modules/
+.expo/
+.expo-user/
+.expo-android-check/
+.npm-cache/
+work/
+dist/
+coverage/
+*.log

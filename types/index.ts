@@ -8,3 +8,4 @@ export interface CheckIn { wakeUp:string; energy:number; focusedHours:number; fi
 export type Season = 'Spring'|'Summer'|'Autumn'|'Winter';
 export interface Reward { id:string; title:string; cost:number }
 export interface FurnitureItem { id:string; title:string; category:'Furniture'|'Decor'|'Plants'|'Wall & Floor'; cost:number; x:number; y:number; owned:boolean }
+
