@@ -5,7 +5,7 @@ import { initialFurniture, initialGoals, initialRewards, initialTasks } from '@/
 import { CheckIn, FurnitureItem, Goal, Reward, Season, Task, TaskStatus } from '@/types';
 
 type TaskEdit = Partial<Pick<Task, 'title' | 'type' | 'duration' | 'scheduledStart' | 'locked'>>;
-type Store = { tasks:Task[]; goals:Goal[]; checkIn:CheckIn; coins:number; lifeProgress:number; season:Season; furniture:FurnitureItem[]; rewards:Reward[]; travelFund:number; visitedDestinations:string[]; currentDestination:string; setCheckIn:(v:Partial<CheckIn>)=>void; setSeason:(s:Season)=>void; updateTask:(id:string,status:TaskStatus)=>void; editTask:(id:string,patch:TaskEdit)=>void; reorderTask:(id:string,targetIndex:number)=>void; replan:(hours:number)=>void; addParsedTasks:(tasks:Task[])=>void; buyItem:(id:string)=>void; moveItem:(id:string,x:number,y:number)=>void; addReward:(title:string,cost:number)=>void; deleteReward:(id:string)=>void; redeemReward:(cost:number)=>void; fundTravel:(amount:number)=>void; startTrip:(id:string,cost:number)=>void };
+type Store = { tasks:Task[]; goals:Goal[]; checkIn:CheckIn; coins:number; lifeProgress:number; season:Season; furniture:FurnitureItem[]; rewards:Reward[]; travelFund:number; visitedDestinations:string[]; currentDestination:string; setCheckIn:(v:Partial<CheckIn>)=>void; setSeason:(s:Season)=>void; updateTask:(id:string,status:TaskStatus)=>void; editTask:(id:string,patch:TaskEdit)=>void; deleteTask:(id:string)=>void; reorderTask:(id:string,targetIndex:number)=>void; replan:(hours:number)=>void; addParsedTasks:(tasks:Task[])=>void; buyItem:(id:string)=>void; moveItem:(id:string,x:number,y:number)=>void; addReward:(title:string,cost:number)=>void; deleteReward:(id:string)=>void; redeemReward:(cost:number)=>void; fundTravel:(amount:number)=>void; startTrip:(id:string,cost:number)=>void };
 
 const addMinutes = (time:string,duration:number) => {
  const [hours,minutes]=time.split(':').map(Number);
@@ -18,6 +18,7 @@ export const usePlannerStore = create<Store>()(persist((set)=>({
  setCheckIn:(v)=>set(s=>({checkIn:{...s.checkIn,...v}})), setSeason:(season)=>set({season}),
  updateTask:(id,status)=>set(s=>{const task=s.tasks.find(t=>t.id===id); const earned=status==='done'&&task&&task.status!=='done'?task.coins:0; return {tasks:s.tasks.map(t=>t.id===id?{...t,status}:t),coins:s.coins+earned,lifeProgress:Math.min(100,s.lifeProgress+(earned?1:0))}}),
  editTask:(id,patch)=>set(s=>({tasks:s.tasks.map(task=>{if(task.id!==id)return task; const next={...task,...patch}; return {...next,scheduledEnd:addMinutes(next.scheduledStart,next.duration)};})})),
+ deleteTask:(id)=>set(s=>({tasks:s.tasks.filter(task=>task.id!==id)})),
  reorderTask:(id,targetIndex)=>set(s=>{
   const fromIndex=s.tasks.findIndex(task=>task.id===id);
   if(fromIndex<0||s.tasks[fromIndex].locked)return s;
