@@ -5,3 +5,4 @@ export const colors = {
 };
 export const radius = { sm: 10, md: 16, lg: 24, pill: 99 };
 export const shadow = { shadowColor: '#62594D', shadowOpacity: 0.06, shadowRadius: 12, shadowOffset: { width: 0, height: 4 }, elevation: 2 };
+

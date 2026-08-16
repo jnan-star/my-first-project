@@ -1,1 +1,39 @@
-{"expo":{"name":"Adaptive Cozy Planner","slug":"adaptive-cozy-planner","version":"1.0.0","orientation":"portrait","scheme":"cozyplanner","userInterfaceStyle":"light","newArchEnabled":true,"ios":{"supportsTablet":true,"bundleIdentifier":"com.cozy.adaptiveplanner"},"android":{"package":"com.cozy.adaptiveplanner","adaptiveIcon":{"backgroundColor":"#F7F3EC"}},"plugins":["expo-router"],"experiments":{"typedRoutes":true}}}
+{
+  "expo": {
+    "name": "Adaptive Cozy Planner",
+    "slug": "adaptive-cozy-planner",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "cozyplanner",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./public/icon-192.png"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.cozy.adaptiveplanner"
+    },
+    "android": {
+      "package": "com.cozy.adaptiveplanner",
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F3EC"
+      }
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "baseUrl": "/my-first-project"
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "3be83399-a7fc-4b63-8a66-fae37a68eb98"
+      }
+    }
+  }
+}
